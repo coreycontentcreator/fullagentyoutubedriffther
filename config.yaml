@@ -1,0 +1,166 @@
+# Master Orchestrator Configuration
+# Viral YouTube Synthesis System
+# Version: 1.0.0
+
+# ==================== System Configuration ====================
+system:
+  log_level: INFO  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  enable_caching: true
+  cache_ttl: 3600  # seconds
+  enable_learning: true
+  modular_mode: true
+
+# ==================== Anthropic API Configuration ====================
+anthropic:
+  # API key should be set in .env file as ANTHROPIC_API_KEY
+  model: claude-sonnet-4-5-20250929  # Primary model for intelligence
+  max_tokens: 8000
+  temperature: 0.7
+  timeout: 300  # seconds
+
+# ==================== Vector Database Configuration ====================
+vector_database:
+  provider: chromadb  # chromadb, pinecone, qdrant
+  collection_name: viral_strategies
+  embedding_model: text-embedding-3-large
+  dimension: 1536
+  distance_metric: cosine
+
+# ==================== Gatekeeper Quality Thresholds ====================
+gatekeeper_thresholds:
+  # Research Gatekeeper
+  research_quality_min: 8.0  # Minimum quality score (0-10)
+
+  # Viral Analyser Gatekeeper
+  viral_potential_min: 9.0  # Minimum viral potential score (0-10)
+
+  # Content Synthesis Gatekeeper
+  script_quality_min: 9.0  # Minimum script quality score (0-10)
+  production_feasibility_min: 8.0  # Minimum production feasibility (0-10)
+
+  # Overall
+  overall_quality_min: 9.0  # Minimum overall quality (0-10)
+  max_iterations: 5  # Maximum quality improvement iterations
+
+# ==================== YouTube API Configuration ====================
+youtube:
+  # API key should be set in .env file as YOUTUBE_API_KEY
+  api_version: v3
+  max_results: 50
+
+  # Viral tier classification thresholds
+  tier_thresholds:
+    gold:
+      views: 1000000  # 1M+ views
+      engagement: 0.10  # 10%+ engagement rate
+      retention: 0.60  # 60%+ retention
+    silver:
+      views: 500000  # 500K+ views
+      engagement: 0.07  # 7%+ engagement rate
+      retention: 0.50  # 50%+ retention
+    bronze:
+      views: 100000  # 100K+ views
+      engagement: 0.05  # 5%+ engagement rate
+      retention: 0.40  # 40%+ retention
+
+# ==================== Research Configuration ====================
+research:
+  min_papers: 50  # Minimum papers to analyze
+  databases:
+    - jstor  # Primary source for unique insights
+    - semantic_scholar
+    - crossref
+    - arxiv
+    - pubmed
+    - openalex
+
+  credibility_threshold: 7.0  # Minimum source credibility (0-10)
+  diversity_threshold: 3  # Minimum number of different sources
+
+# ==================== Viral Analysis Configuration ====================
+viral_analysis:
+  min_hooks: 10  # Minimum hook variations to generate
+  psychology_triggers:
+    - curiosity_gap
+    - social_proof
+    - authority
+    - scarcity
+    - reciprocity
+    - storytelling
+    - pattern_interruption
+    - loss_aversion
+    - novelty
+    - controversy
+    - identity
+    - progress
+    - transformation
+    - mystery
+    - urgency
+    - tribal_belonging
+
+  retention_checkpoints:
+    - 15  # seconds - opening hook
+    - 120  # 2 minutes - first mid-roll hook
+    - 240  # 4 minutes
+    - 360  # 6 minutes
+    - 480  # 8 minutes
+    - 600  # 10 minutes
+
+# ==================== Content Synthesis Configuration ====================
+content_synthesis:
+  default_style: documentary
+  default_duration: 15  # minutes
+
+  styles:
+    - documentary
+    - educational
+    - entertainment
+    - interview
+    - vlog
+    - tutorial
+
+  scene_detail_level: high  # low, medium, high
+  include_b_roll_suggestions: true
+  include_music_notes: true
+  include_timing_breakdown: true
+
+# ==================== Output Configuration ====================
+output:
+  formats:
+    - json
+    - markdown
+    - txt
+
+  include_metadata: true
+  include_quality_scores: true
+  include_iteration_history: true
+
+  save_intermediate_results: true  # Save research, viral strategy, etc. separately
+
+# ==================== Performance Configuration ====================
+performance:
+  concurrent_database_queries: 3  # Parallel database queries
+  api_retry_attempts: 3
+  api_retry_delay: 2  # seconds
+  request_timeout: 600  # seconds (10 minutes)
+
+  cache_embeddings: true
+  cache_api_responses: true
+
+# ==================== Advanced Features ====================
+advanced:
+  # Learning system
+  auto_learn_from_success: true  # Automatically learn from successful videos
+  learning_batch_size: 10  # Number of videos to batch analyze
+
+  # A/B testing
+  enable_ab_testing: false  # Generate multiple variations for testing
+  ab_test_variations: 3
+
+  # Analytics
+  track_performance_metrics: true
+  generate_analytics_reports: true
+
+  # Customization
+  allow_custom_psychology_triggers: true
+  allow_custom_templates: true
