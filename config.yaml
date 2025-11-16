@@ -1,0 +1,59 @@
+# Configuration for Vector Database and Content Retriever Agent
+# Viral YouTube Synthesis System
+
+vector_database:
+  # Storage configuration
+  storage_path: "./data/vector_db"
+
+  # OpenAI configuration
+  embedding_model: "text-embedding-3-large"  # Best quality embeddings
+
+  # Search configuration
+  default_top_k: 10
+  min_similarity_threshold: 0.5
+
+  # Quality thresholds (aligned with gatekeeper requirements)
+  quality_thresholds:
+    research: 8.0          # Research Gatekeeper minimum
+    viral_strategy: 9.0    # Viral Analyser Gatekeeper minimum
+    output: 9.0            # Content Synthesis Gatekeeper minimum
+    overall: 9.0           # System-wide minimum
+
+  # Viral tier classification thresholds
+  viral_tiers:
+    gold:
+      min_views: 1000000
+      min_engagement_rate: 10.0
+      min_retention_rate: 60.0
+    silver:
+      min_views: 500000
+      min_engagement_rate: 7.0
+      min_retention_rate: 50.0
+    bronze:
+      min_views: 100000
+      min_engagement_rate: 5.0
+      min_retention_rate: 40.0
+
+content_retriever:
+  # Retrieval configuration
+  enable_caching: true
+  cache_ttl_hours: 24
+
+  # Recommendation settings
+  max_hook_recommendations: 10
+  max_pattern_recommendations: 5
+  max_trigger_recommendations: 10
+
+  # Database maintenance
+  auto_cleanup: true
+  cleanup_interval_days: 30
+  min_quality_for_retention: 7.0
+
+# API Keys (use environment variables or .env file)
+# OPENAI_API_KEY=your_openai_api_key_here
+# ANTHROPIC_API_KEY=your_anthropic_api_key_here
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "./logs/vector_db.log"
