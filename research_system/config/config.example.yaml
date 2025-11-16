@@ -1,0 +1,88 @@
+# Research System Configuration File
+# Copy this file to config.yaml and fill in your API keys
+
+api:
+  # REQUIRED: Anthropic API key for Claude AI
+  anthropic_api_key: ${ANTHROPIC_API_KEY}
+
+  # OPTIONAL: API keys for enhanced features
+  semantic_scholar_api_key: ${SEMANTIC_SCHOLAR_API_KEY}  # Optional - higher rate limits
+  jstor_api_key: ${JSTOR_API_KEY}  # Required for JSTOR access
+  crossref_api_key: ${CROSSREF_API_KEY}  # Optional - higher rate limits
+  pubmed_api_key: ${PUBMED_API_KEY}  # Optional - higher rate limits
+  arxiv_api_key: ${ARXIV_API_KEY}  # Not required
+  openalex_email: ${OPENALEX_EMAIL}  # Recommended for polite pool access
+
+research:
+  # Quality threshold for research (0-10)
+  min_quality_threshold: 8.0
+
+  # Maximum papers per source
+  max_papers_per_source: 20
+
+  # Total maximum papers to analyze
+  total_max_papers: 100
+
+  # Request timeout in seconds
+  timeout_seconds: 30
+
+  # Enable caching
+  enable_caching: true
+
+  # Cache TTL in hours
+  cache_ttl_hours: 24
+
+  # Parallel requests
+  parallel_requests: true
+
+  # Max concurrent requests
+  max_concurrent_requests: 5
+
+  # Source priorities (1-10, higher = more important)
+  source_priorities:
+    jstor: 10  # Primary source for unique insights
+    semantic_scholar: 9
+    crossref: 8
+    arxiv: 7
+    pubmed: 7
+    openalex: 6
+
+  # Quality thresholds for validation
+  quality_thresholds:
+    academic_rigor: 8.0
+    source_diversity: 7.0
+    citation_quality: 8.0
+    novelty: 7.5
+    credibility: 9.0
+
+subagents:
+  # Enable/disable subagents
+  citation_tracker_enabled: true
+  credibility_analyzer_enabled: true
+  insight_synthesizer_enabled: true
+  fact_checker_enabled: true
+  database_coordinator_enabled: true
+
+  # AI models for subagents
+  insight_synthesis_model: claude-sonnet-4-5-20250929
+  fact_checking_model: claude-sonnet-4-5-20250929
+  credibility_analysis_model: claude-3-5-haiku-20241022
+
+system:
+  # Maximum refinement iterations
+  max_iterations: 5
+
+  # Enable continuous learning
+  enable_learning: true
+
+  # Output directory for reports
+  output_directory: research_system/outputs
+
+  # Cache directory
+  cache_directory: research_system/cache
+
+  # Logging level (DEBUG, INFO, WARNING, ERROR)
+  log_level: INFO
+
+  # Verbose output
+  verbose: true
