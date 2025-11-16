@@ -1,0 +1,54 @@
+# Viral Analysis System Configuration
+
+# API Configuration (override with environment variables)
+api:
+  anthropic_api_key: null  # Set via ANTHROPIC_API_KEY env variable
+  youtube_api_key: null    # Set via YOUTUBE_API_KEY env variable
+  openai_api_key: null     # Set via OPENAI_API_KEY env variable (optional)
+
+# Viral Analysis Settings
+viral_analysis:
+  # Quality thresholds
+  min_viral_score: 9.0
+  min_engagement_rate: 5.0
+  min_retention_rate: 40.0
+
+  # Tier classification thresholds
+  gold_tier_views: 1000000
+  gold_tier_engagement: 10.0
+  gold_tier_retention: 60.0
+
+  silver_tier_views: 500000
+  silver_tier_engagement: 7.0
+  silver_tier_retention: 50.0
+
+  bronze_tier_views: 100000
+  bronze_tier_engagement: 5.0
+  bronze_tier_retention: 40.0
+
+  # Hook settings
+  hook_variations_count: 10
+  hook_duration_seconds: 15
+
+  # Psychology triggers
+  psychology_triggers_enabled: true
+  triggers_count: 16
+
+  # Learning settings
+  continuous_learning_enabled: true
+  max_iterations: 5
+
+  # Performance settings
+  max_concurrent_subagents: 8
+  enable_caching: true
+  cache_ttl_hours: 24
+
+  # AI Model settings
+  primary_model: "claude-sonnet-4-5-20250929"
+  fallback_model: "claude-haiku"
+  temperature: 0.7
+  max_tokens: 4096
+
+# System Settings
+debug: false
+log_level: "INFO"
