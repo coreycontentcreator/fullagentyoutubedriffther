@@ -1,0 +1,18 @@
+# Vector Database & Content Retriever Agent Requirements
+# For Viral YouTube Synthesis System
+
+# Core dependencies
+openai>=1.0.0              # OpenAI API for embeddings (text-embedding-3-large)
+numpy>=1.24.0              # Vector operations and similarity calculations
+
+# Optional but recommended
+anthropic>=0.18.0          # Claude API for text generation
+python-dotenv>=1.0.0       # Environment variable management
+
+# Data handling
+pydantic>=2.0.0            # Data validation and settings management
+
+# Development dependencies (optional)
+pytest>=7.4.0              # Testing
+black>=23.0.0              # Code formatting
+mypy>=1.5.0                # Type checking
