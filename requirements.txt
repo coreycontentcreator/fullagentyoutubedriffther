@@ -1,14 +1,38 @@
-# Core Dependencies
+# Core Dependencies - Modular Agentic System
 anthropic>=0.40.0
 pyyaml>=6.0
 python-dotenv>=1.0.0
 
-# Optional: For enhanced functionality
+# AI and ML
+numpy>=1.24.0
+scipy>=1.10.0
+
+# Async and HTTP
 aiohttp>=3.9.0
-asyncio>=3.4.3
+httpx>=0.25.0
+requests>=2.31.0
+
+# Data Processing
+pandas>=2.0.0
+
+# Storage and Serialization
+pickle5>=0.0.12; python_version < '3.8'
+
+# Optional: Research Database Integrations
+# semanticscholar>=0.5.0
+# crossref-commons>=0.0.7
+
+# Optional: YouTube Integration
+# google-api-python-client>=2.100.0
+# youtube-transcript-api>=0.6.0
 
 # Development Dependencies (optional)
 pytest>=7.4.0
 pytest-asyncio>=0.21.0
 black>=23.0.0
 flake8>=6.0.0
+mypy>=1.0.0
+
+# Documentation (optional)
+# mkdocs>=1.5.0
+# mkdocs-material>=9.0.0
